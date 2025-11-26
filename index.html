@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viora Biotech - Super Admin User Flows</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "base",
+        securityLevel: "loose",
+        themeVariables: {
+          primaryColor: "#E0F2FE",
+          primaryTextColor: "#1F2937",
+          primaryBorderColor: "#0066CC",
+          lineColor: "#6B7280",
+          secondaryColor: "#F3F4F6",
+          tertiaryColor: "#FEF3C7",
+        },
+      });
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #f9fafb;
+        color: #1f2937;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 40px 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 36px;
+        font-weight: 700;
+        color: #0066cc;
+        margin-bottom: 12px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+        color: #6b7280;
+        margin-bottom: 8px;
+      }
+
+      .date {
+        font-size: 14px;
+        color: #9ca3af;
+      }
+
+      .flow-section {
+        background: white;
+        border-radius: 12px;
+        padding: 40px;
+        margin-bottom: 40px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .flow-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid #e5e7eb;
+      }
+
+      .flow-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+        color: white;
+        border-radius: 12px;
+        font-size: 24px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .flow-title-group {
+        flex: 1;
+      }
+
+      .flow-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 4px;
+      }
+
+      .flow-description {
+        font-size: 14px;
+        color: #6b7280;
+      }
+
+      .flow-content {
+        margin-top: 24px;
+      }
+
+      .key-points {
+        background: #f3f4f6;
+        border-left: 4px solid #0066cc;
+        padding: 20px;
+        margin: 24px 0;
+        border-radius: 8px;
+      }
+
+      .key-points h4 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 12px;
+      }
+
+      .key-points ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .key-points li {
+        padding: 8px 0;
+        padding-left: 24px;
+        position: relative;
+        color: #4b5563;
+        font-size: 14px;
+      }
+
+      .key-points li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #0066cc;
+        font-weight: 700;
+      }
+
+      .mermaid {
+        text-align: center;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 24px 0;
+      }
+
+      .legend {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        margin-top: 24px;
+        padding: 20px;
+        background: #f9fafb;
+        border-radius: 8px;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+      }
+
+      .legend-box {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+      }
+
+      .toc {
+        background: white;
+        border-radius: 12px;
+        padding: 32px;
+        margin-bottom: 40px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .toc h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 20px;
+      }
+
+      .toc ul {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+      }
+
+      .toc li {
+        padding: 12px 16px;
+        background: #f9fafb;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .toc li:hover {
+        background: #e5e7eb;
+        transform: translateX(4px);
+      }
+
+      .toc a {
+        text-decoration: none;
+        color: #0066cc;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .toc a:before {
+        content: "→";
+        font-weight: 700;
+      }
+
+      @media print {
+        .flow-section {
+          page-break-inside: avoid;
+          page-break-after: always;
+        }
+
+        body {
+          background: white;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px 16px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        .flow-title {
+          font-size: 20px;
+        }
+
+        .legend {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Viora Biotech Super Admin</h1>
+        <div class="subtitle">User Flow Diagrams</div>
+        <div class="date">
+          Complete Workflow Documentation for Product Designers & Developers
+        </div>
+      </header>
+
+      <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+          <li>
+            <a href="#flow1">Flow 1: Admin-Invited Provider Onboarding</a>
+          </li>
+          <li>
+            <a href="#flow2">Flow 2: Public Provider Application & Approval</a>
+          </li>
+          <li><a href="#flow3">Flow 3: Provider Order Placement</a></li>
+          <li><a href="#flow4">Flow 4: Admin Order Fulfillment</a></li>
+          <li><a href="#flow5">Flow 5: Commission Report Generation</a></li>
+          <li><a href="#flow6">Flow 6: Product Management</a></li>
+          <li><a href="#flow7">Flow 7: Rep Performance Review</a></li>
+          <li><a href="#flow8">Flow 8: Discount Code Management</a></li>
+          <li><a href="#flow9">Flow 9: Low Stock Alert Handling</a></li>
+          <li>
+            <a href="#flow10">Flow 10: Bulk Actions - Multiple Approvals</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- FLOW 1 -->
+      <div class="flow-section" id="flow1">
+        <div class="flow-header">
+          <div class="flow-number">1</div>
+          <div class="flow-title-group">
+            <div class="flow-title">Admin-Invited Provider Onboarding</div>
+            <div class="flow-description">
+              Complete workflow for admins to create and invite providers with
+              rep attribution
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>
+                Admin creates provider profile with required information (NPI,
+                clinic details)
+              </li>
+              <li>Rep assignment is mandatory during creation</li>
+              <li>System validates NPI format before proceeding</li>
+              <li>Automated invite email sent with unique activation link</li>
+              <li>Provider sets password and activates account</li>
+              <li>
+                Rep attribution is permanent and automatic for all future orders
+              </li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD A1[Admin logs into Super Admin Panel] --> A2[Navigate
+            to Providers - Create New Provider] A2 --> A3[Fill Provider Form<br />Clinic
+            name, NPI number<br />Contact info, Shipping address] A3 -->
+            A4[Select Rep from Dropdown<br />Required field] A4 --> A5[Click
+            Submit] A5 --> A6{NPI Valid?} A6 -->|No| A7[Show Error Message<br />Invalid
+            NPI format] A7 --> A3 A6 -->|Yes| A8[Provider Created<br />Status:
+            Pending Activation] A8 --> A9[System Sends Invite Email<br />with
+            Unique Activation Link] A9 --> A10[Toast: Provider created<br />Invite
+            email sent] A10 --> A11[Admin Returns to<br />Provider Directory] A9
+            -.-> P1[Provider Receives Email] P1 --> P2[Provider Clicks<br />Activation
+            Link] P2 --> P3[Provider Sets Password] P3 --> P4[Provider Completes
+            Profile<br />Optional details] P4 --> P5[Account Activated<br />Status:
+            Active] P5 --> P6[Provider Can Now<br />Browse and Purchase] P5 -.->
+            P7[Rep Automatically<br />Attributed to All Orders] style A8
+            fill:#10B981,stroke:#059669,stroke-width:2px style P5
+            fill:#10B981,stroke:#059669,stroke-width:2px style A7
+            fill:#EF4444,stroke:#DC2626,stroke-width:2px
+          </div>
+          <div class="legend">
+            <div class="legend-item">
+              <div class="legend-box" style="background: #10b981"></div>
+              <span>Success State</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-box" style="background: #ef4444"></div>
+              <span>Error State</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-box" style="background: #f59e0b"></div>
+              <span>Pending/Warning State</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-box" style="background: #3b82f6"></div>
+              <span>Information/Process State</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW 2 -->
+      <div class="flow-section" id="flow2">
+        <div class="flow-header">
+          <div class="flow-number">2</div>
+          <div class="flow-title-group">
+            <div class="flow-title">Public Provider Application & Approval</div>
+            <div class="flow-description">
+              Self-service application flow with admin review and approval
+              workflow
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Provider-initiated application process via public form</li>
+              <li>
+                Document uploads required (business license, reseller
+                certificate)
+              </li>
+              <li>Admin receives notification of new pending applications</li>
+              <li>Admin reviews documents and assigns rep before approval</li>
+              <li>Rejection requires reason (sent to provider via email)</li>
+              <li>Approval triggers automated welcome email with setup link</li>
+              <li>Optional rep assignment (can be marked as "Unassigned")</li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD B1[Provider Visits Website] --> B2[Clicks Apply for
+            Account] B2 --> B3[Fill Application Form<br />Clinic name, NPI
+            number<br />Contact info<br />Business license upload<br />Reseller
+            cert upload] B3 --> B4[Submit Application] B4 --> B5[System Sends
+            Confirmation Email<br />Application received under review] B5 -->
+            B6[Application in Admin Panel<br />Status: Pending Approval] B6 -.->
+            A1[Admin Receives Notification<br />New Application Badge] A1 -->
+            A2[Navigate to Providers<br />Pending Applications] A2 --> A3[Click
+            View on Application] A3 --> A4[Review Application Details<br />Provider
+            info<br />Uploaded documents<br />NPI verification] A4 -->
+            A5{Documents Valid?} A5 -->|No| A6[Click Reject] A6 --> A7[Enter
+            Rejection Reason] A7 --> A8[Confirm Rejection] A8 --> A9[System
+            Sends Rejection Email<br />with Reason and Reapplication Info] A9
+            --> A10[Application Status: Rejected] A5 -->|Yes| A11[Assign Rep
+            from Dropdown<br />or Select Unassigned] A11 --> A12[Click Approve]
+            A12 --> A13[Confirmation Dialog<br />Send welcome email?] A13 -->
+            A14[Admin Confirms] A14 --> A15[Provider Approved<br />Status:
+            Active Pending Setup] A15 --> A16[System Sends Welcome Email<br />with
+            Login Setup Link] A16 --> A17[Toast: Provider approved<br />Welcome
+            email sent] A16 -.-> P1[Provider Receives Welcome Email] P1 -->
+            P2[Provider Clicks Setup Link] P2 --> P3[Provider Sets Password] P3
+            --> P4[Account Fully Active<br />Can Browse and Purchase] P4 -.->
+            P5[Rep Automatically<br />Attributed to All Orders] style A15
+            fill:#10B981,stroke:#059669,stroke-width:2px style P4
+            fill:#10B981,stroke:#059669,stroke-width:2px style A10
+            fill:#EF4444,stroke:#DC2626,stroke-width:2px
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW 3 -->
+      <div class="flow-section" id="flow3">
+        <div class="flow-header">
+          <div class="flow-number">3</div>
+          <div class="flow-title-group">
+            <div class="flow-title">Provider Order Placement</div>
+            <div class="flow-description">
+              Complete checkout flow with tiered pricing, payment options, and
+              rep attribution
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Dynamic tiered pricing calculation in cart</li>
+              <li>
+                Payment methods via Tycoon Payments (credit card, debit card,
+                ACH)
+              </li>
+              <li>All payment processing handled by Tycoon integration</li>
+              <li>Optional discount code application at checkout</li>
+              <li>Automatic rep attribution to every order</li>
+              <li>Real-time sales total updates for assigned reps</li>
+              <li>Order confirmation emails sent immediately</li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD C1[Provider Logs In] --> C2[Browse Product Catalog] C2
+            --> C3[Add Products to Cart] C3 --> C4[Cart Shows Tiered Pricing<br />Auto-calculates
+            discounts] C4 --> C5[Proceed to Checkout] C5 --> C6[Enter or Confirm
+            Shipping Address] C6 --> C7[Select Payment Method<br />Credit Card,
+            Debit Card, or ACH] C7 --> C8[Apply Discount Code<br />Optional] C8
+            --> C9{Discount Valid?} C9 -->|No| C10[Show Error: Invalid Code] C10
+            --> C8 C9 -->|Yes| C11[Discount Applied] C11 --> C12[Review Order
+            Total] C12 --> C13[Complete Purchase] C13 --> C14[Order Created<br />Status:
+            Pending Payment] C14 --> C15{Payment Method?} C15 -->|Card|
+            C16[Payment Processed via Tycoon<br />Status: Paid] C15 -->|ACH|
+            C17[Payment Processing<br />3-5 business days] C16 --> C18[Order
+            Confirmation Email<br />to Provider] C17 --> C18 C18 --> C19[Order
+            Appears in<br />Provider Order History] C19 --> C20[Order Appears
+            in<br />Admin Order Dashboard] C20 --> C21[Rep Attribution<br />Automatically
+            Tagged] C21 --> C22[Rep Sales Total<br />Auto-Updated] style C14
+            fill:#F59E0B,stroke:#D97706,stroke-width:2px style C16
+            fill:#10B981,stroke:#059669,stroke-width:2px style C17
+            fill:#F59E0B,stroke:#D97706,stroke-width:2px style C21
+            fill:#3B82F6,stroke:#2563EB,stroke-width:2px
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW 4 -->
+      <div class="flow-section" id="flow4">
+        <div class="flow-header">
+          <div class="flow-number">4</div>
+          <div class="flow-title-group">
+            <div class="flow-title">Admin Order Fulfillment</div>
+            <div class="flow-description">
+              Complete order management workflow from processing to shipment
+              tracking
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>
+                Filter orders by status (Pending, Processing, Shipped,
+                Delivered)
+              </li>
+              <li>
+                Detailed order view with full breakdown and rep attribution
+              </li>
+              <li>Status updates trigger automated provider notifications</li>
+              <li>Tracking number entry with validation</li>
+              <li>Batch processing capability for multiple orders</li>
+              <li>Provider receives tracking link via email</li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD D1[Admin Logs In] --> D2[Navigate to Orders] D2 -->
+            D3[Filter by Processing Status] D3 --> D4[Table Shows 5 Orders<br />Ready
+            to Ship] D4 --> D5[Click View on First Order] D5 --> D6[Order Detail
+            Modal Opens<br />Shows full breakdown] D6 --> D7[Review Order
+            Items<br />Provider info, Rep attribution] D7 --> D8[Scroll to Admin
+            Actions] D8 --> D9[Update Status Dropdown<br />Processing to
+            Shipped] D9 --> D10[Tracking Number Field Appears] D10 --> D11[Enter
+            Tracking Number<br />e.g., 1Z999AA10123456784] D11 --> D12[Click
+            Save] D12 --> D13[System Sends Email to Provider<br />Order shipped
+            track here] D13 --> D14[Toast: Status updated<br />Provider
+            notified] D14 --> D15[Order Status: Shipped] D15 --> D16[Admin
+            Returns to Order Table] D16 --> D17{More Orders?} D17 -->|Yes| D5
+            D17 -->|No| D18[All Orders Processed] D13 -.-> P1[Provider Receives
+            Email] P1 --> P2[Provider Clicks Track Link] P2 --> P3[Views
+            Tracking Info] style D15
+            fill:#10B981,stroke:#059669,stroke-width:2px style D14
+            fill:#10B981,stroke:#059669,stroke-width:2px
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW 5 -->
+      <div class="flow-section" id="flow5">
+        <div class="flow-header">
+          <div class="flow-number">5</div>
+          <div class="flow-title-group">
+            <div class="flow-title">Commission Report Generation</div>
+            <div class="flow-description">
+              Generate payout-ready commission reports with CSV export for
+              manual processing
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Flexible date range selection for reporting periods</li>
+              <li>Filter by individual rep or view all reps</li>
+              <li>Automatic commission calculation based on rep's rate</li>
+              <li>CSV export includes order-level detail for transparency</li>
+              <li>Payout status tracking (Pending, Paid with date)</li>
+              <li>Integration point for future automated payout systems</li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD E1[Admin Logs In] --> E2[Navigate to Reports] E2 -->
+            E3[Select Commission Report] E3 --> E4[Select Date Range<br />e.g.,
+            Nov 1-15 2025] E4 --> E5{Filter by Rep?} E5 -->|Yes| E6[Select Rep
+            from Dropdown] E5 -->|No| E7[Show All Reps] E6 --> E8[Table
+            Populates with Data<br />Rep Sales Rate Commission Orders] E7 --> E8
+            E8 --> E9[Review Commission Data] E9 --> E10[Click Export CSV] E10
+            --> E11[CSV Downloads<br />Includes order-level detail] E11 -->
+            E12[Admin Processes Payouts<br />External: Gusto] E12 --> E13[Admin
+            Returns to Report] E13 --> E14[Check Mark as Paid<br />for Each Rep
+            Row] E14 --> E15[System Updates Status<br />Payout: Paid with Date]
+            E15 --> E16[Toast: Payouts marked<br />as complete] E16 -->
+            E17[Commission Report Updated] style E11
+            fill:#10B981,stroke:#059669,stroke-width:2px style E15
+            fill:#10B981,stroke:#059669,stroke-width:2px
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW 6 -->
+      <div class="flow-section" id="flow6">
+        <div class="flow-header">
+          <div class="flow-number">6</div>
+          <div class="flow-title-group">
+            <div class="flow-title">Product Management</div>
+            <div class="flow-description">
+              Complete product creation workflow with pricing tiers, images, and
+              documentation
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Comprehensive product form with all required fields</li>
+              <li>Multiple image upload with drag-to-reorder capability</li>
+              <li>COA (Certificate of Analysis) PDF upload</li>
+              <li>Flexible tiered pricing structure (unlimited tiers)</li>
+              <li>Optional minimum order quantity per product</li>
+              <li>Real-time validation before submission</li>
+              <li>Immediate availability in provider portal after creation</li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD F1[Admin Logs In] --> F2[Navigate to Products] F2 -->
+            F3[Click Add New Product] F3 --> F4[Fill Product Form<br />Name
+            Description Category<br />Dosage Vial size Stock qty] F4 -->
+            F5[Upload Product Images<br />Drag to reorder] F5 --> F6[Upload COA
+            PDF] F6 --> F7[Add Testing Data<br />URL or upload] F7 --> F8[Set
+            Pricing Tiers<br />Click Add Tier] F8 --> F9[For Each Tier Enter<br />Min
+            quantity Max quantity<br />Price per unit] F9 --> F10{Add Another
+            Tier?} F10 -->|Yes| F8 F10 -->|No| F11[Set Minimum Order Qty<br />Optional]
+            F11 --> F12[Set Product Status<br />Active or Inactive] F12 -->
+            F13[Click Submit] F13 --> F14{Validation Pass?} F14 -->|No| F15[Show
+            Error Messages<br />Fix required fields] F15 --> F4 F14 -->|Yes|
+            F16[Product Created<br />Added to Catalog] F16 --> F17[Toast:
+            Product added<br />successfully] F17 --> F18[Product Visible in
+            Catalog<br />and Provider Portal] style F16
+            fill:#10B981,stroke:#059669,stroke-width:2px style F15
+            fill:#EF4444,stroke:#DC2626,stroke-width:2px
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW 7 -->
+      <div class="flow-section" id="flow7">
+        <div class="flow-header">
+          <div class="flow-number">7</div>
+          <div class="flow-title-group">
+            <div class="flow-title">Rep Performance Review</div>
+            <div class="flow-description">
+              Comprehensive rep analytics with provider attribution and
+              commission tracking
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>
+                Sortable rep directory (by sales, commission, provider count)
+              </li>
+              <li>Detailed performance page per rep with key metrics</li>
+              <li>View all attributed providers with individual performance</li>
+              <li>Complete order history filtered by rep attribution</li>
+              <li>Monthly commission breakdown chart</li>
+              <li>Inline editing of commission rates</li>
+              <li>Foundation for future rep dashboard access</li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD G1[Admin Logs In] --> G2[Navigate to Reps] G2 -->
+            G3[Rep Directory Table<br />All Reps Listed] G3 --> G4[Sort by Total
+            Sales<br />Descending] G4 --> G5[Click View on Top Rep] G5 -->
+            G6[Rep Performance Page Opens] G6 --> G7[Overview Section Shows<br />Total
+            providers<br />Total sales all-time YTD<br />Total commission
+            earned] G7 --> G8[Scroll to Attributed Providers<br />Table of all
+            linked providers] G8 --> G9[Review Provider Performance<br />Orders
+            spend per provider] G9 --> G10[Scroll to Order History<br />All
+            orders with this rep] G10 --> G11[Review Commission Breakdown<br />Monthly
+            chart] G11 --> G12{Make Changes?} G12 -->|Yes| G13[Click Edit Rep]
+            G13 --> G14[Update Commission Rate<br />or Other Details] G14 -->
+            G15[Click Save] G15 --> G16[Toast: Rep updated<br />successfully]
+            G16 --> G17[Return to Rep Performance] G12 -->|No| G18[Return to Rep
+            Directory] style G16 fill:#10B981,stroke:#059669,stroke-width:2px
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW 8 -->
+      <div class="flow-section" id="flow8">
+        <div class="flow-header">
+          <div class="flow-number">8</div>
+          <div class="flow-title-group">
+            <div class="flow-title">Discount Code Management</div>
+            <div class="flow-description">
+              Create and manage promotional discount codes with flexible
+              configurations
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Support for percentage and fixed amount discounts</li>
+              <li>Auto-generate code option for quick creation</li>
+              <li>Flexible usage limits (specific number or unlimited)</li>
+              <li>Expiration date management</li>
+              <li>Scope to all products or specific products</li>
+              <li>Optional minimum order value requirement</li>
+              <li>Immediate availability at checkout after creation</li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD H1[Admin Logs In] --> H2[Navigate to Marketing<br />Discount
+            Codes] H2 --> H3[Click Create Discount Code] H3 --> H4[Enter Code
+            Name<br />e.g., WELCOME10] H4 --> H5[Select Type<br />Percentage or
+            Fixed Amount] H5 --> H6[Enter Value<br />e.g., 10% or $50] H6 -->
+            H7[Set Usage Limit<br />Number or Unlimited] H7 --> H8[Set
+            Expiration Date<br />Date picker] H8 --> H9[Set Applicable
+            Products<br />All or Specific] H9 --> H10[Set Min Order Value<br />Optional]
+            H10 --> H11[Set Status<br />Active or Disabled] H11 --> H12[Click
+            Create] H12 --> H13{Code Unique?} H13 -->|No| H14[Error: Code
+            already exists] H14 --> H4 H13 -->|Yes| H15[Code Created<br />Immediately
+            Available] H15 --> H16[Toast: Discount code<br />created
+            successfully] H16 --> H17[Code Listed in Table] H17 -->
+            H18[Providers Can Use<br />at Checkout] style H15
+            fill:#10B981,stroke:#059669,stroke-width:2px style H14
+            fill:#EF4444,stroke:#DC2626,stroke-width:2px
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW 9 -->
+      <div class="flow-section" id="flow9">
+        <div class="flow-header">
+          <div class="flow-number">9</div>
+          <div class="flow-title-group">
+            <div class="flow-title">Low Stock Alert Handling</div>
+            <div class="flow-description">
+              Proactive inventory management with dashboard alerts and quick
+              resolution
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Dashboard widget displays low stock count with badge</li>
+              <li>Configurable threshold (default: less than 20 units)</li>
+              <li>One-click navigation to filtered product view</li>
+              <li>Quick inline stock quantity editing</li>
+              <li>Real-time badge updates after stock replenishment</li>
+              <li>Prevents stockouts and lost sales</li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD I1[Admin Logs In] --> I2[Dashboard Loads] I2 --> I3[Low
+            Stock Widget Shows<br />Badge: 3 Products] I3 --> I4[Admin Clicks
+            Badge] I4 --> I5[Navigate to Products<br />Auto-filtered: Low Stock]
+            I5 --> I6[Table Shows 3 Products<br />Stock less than 20 units] I6
+            --> I7[Click Edit on First Product] I7 --> I8[Product Edit Form
+            Opens] I8 --> I9[Update Stock Quantity<br />e.g., 15 to 100] I9 -->
+            I10[Click Save] I10 --> I11[Stock Updated] I11 --> I12[Toast: Stock
+            updated<br />successfully] I12 --> I13{More Low Stock Items?} I13
+            -->|Yes| I6 I13 -->|No| I14[Return to Dashboard] I14 --> I15[Low
+            Stock Badge<br />Updated: 0 Products] style I11
+            fill:#10B981,stroke:#059669,stroke-width:2px style I15
+            fill:#10B981,stroke:#059669,stroke-width:2px
+          </div>
+        </div>
+      </div>
+
+      <!-- FLOW 10 -->
+      <div class="flow-section" id="flow10">
+        <div class="flow-header">
+          <div class="flow-number">10</div>
+          <div class="flow-title-group">
+            <div class="flow-title">
+              Bulk Actions - Multiple Application Approvals
+            </div>
+            <div class="flow-description">
+              Efficient batch processing for high-volume application management
+            </div>
+          </div>
+        </div>
+        <div class="flow-content">
+          <div class="key-points">
+            <h4>Key Features:</h4>
+            <ul>
+              <li>Multi-select capability with checkboxes</li>
+              <li>Bulk rep assignment before approval</li>
+              <li>Bulk approve action with confirmation dialog</li>
+              <li>Automated welcome emails sent to all approved providers</li>
+              <li>Real-time table updates after bulk actions</li>
+              <li>Significantly reduces time for high-volume periods</li>
+              <li>Maintains data integrity with validation checks</li>
+            </ul>
+          </div>
+          <div class="mermaid">
+            flowchart TD J1[Admin Logs In] --> J2[Navigate to Providers<br />Pending
+            Applications] J2 --> J3[Table Shows 10<br />Pending Applications] J3
+            --> J4[Select Checkbox on Row 1] J4 --> J5[Select Checkbox on Row 2]
+            J5 --> J6[Select Checkbox on Row 3] J6 --> J7[Bulk Actions Bar
+            Appears<br />3 Selected] J7 --> J8[Click Bulk Assign Rep] J8 -->
+            J9[Rep Dropdown Appears] J9 --> J10[Select Rep: John Smith] J10 -->
+            J11[Click Apply] J11 --> J12[All 3 Applications<br />Rep: John
+            Smith] J12 --> J13[Click Bulk Approve] J13 --> J14[Confirmation
+            Dialog<br />Approve 3 applications?] J14 --> J15[Admin Confirms] J15
+            --> J16[All 3 Applications Approved<br />Status: Active Pending
+            Setup] J16 --> J17[System Sends 3 Welcome Emails] J17 --> J18[Toast:
+            3 providers approved<br />Emails sent] J18 --> J19[Table Updates<br />7
+            Pending Applications Remain] style J16
+            fill:#10B981,stroke:#059669,stroke-width:2px style J18
+            fill:#10B981,stroke:#059669,stroke-width:2px
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
