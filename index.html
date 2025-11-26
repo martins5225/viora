@@ -428,7 +428,7 @@
             <h4>Key Features:</h4>
             <ul>
               <li>Dynamic tiered pricing calculation in cart</li>
-              <li>Multiple payment methods supported</li>
+              <li>Multiple payment methods supported (Tycoon Payments)</li>
               <li>Optional discount code application at checkout</li>
               <li>Zelle payments require manual admin verification</li>
               <li>Automatic rep attribution to every order</li>
@@ -440,18 +440,19 @@
             graph TD C1[Provider Logs In] --> C2[Browse Product Catalog] C2 -->
             C3[Add Products to Cart] C3 --> C4[Cart Shows Tiered Pricing<br />Auto-calculates
             discounts] C4 --> C5[Proceed to Checkout] C5 --> C6[Enter/Confirm
-            Shipping Address] C6 --> C7[Select Payment Method C7 --> C8[Apply
-            Discount Code<br />Optional] C8 --> C9{Discount Valid?} C9 -->|No|
-            C10[Show Error: Invalid Code] C10 --> C8 C9 -->|Yes| C11[Discount
-            Applied] C11 --> C12[Review Order Total] C12 --> C13[Complete
-            Purchase] C13 --> C14[Order Created<br />Status: Pending Payment]
-            C14 --> C15{Payment Method?} C15 -->|Handled by tycoon payment|
-            C16[Payment Processed<br />Status: Paid] C15 -->|Zelle| C17[Status:
-            Pending Payment<br />Awaiting Manual Verification] C16 --> C18[Order
-            Confirmation Email<br />to Provider] C17 --> C18 C18 --> C19[Order
-            Appears in<br />Provider Order History] C19 --> C20[Order Appears
-            in<br />Admin Order Dashboard] C20 --> C21[Rep Attribution<br />Automatically
-            Tagged] C21 --> C22[Rep Sales Total<br />Auto-Updated] style C14
+            Shipping Address] C6 --> C7[Select Payment Method<br />Tycoon
+            Pyament, Zelle, Apple Pay] C7 --> C8[Apply Discount Code<br />Optional]
+            C8 --> C9{Discount Valid?} C9 -->|No| C10[Show Error: Invalid Code]
+            C10 --> C8 C9 -->|Yes| C11[Discount Applied] C11 --> C12[Review
+            Order Total] C12 --> C13[Complete Purchase] C13 --> C14[Order
+            Created<br />Status: Pending Payment] C14 --> C15{Payment Method?}
+            C15 -->|Tycoon Payment - Pay| C16[Payment Processed<br />Status:
+            Paid] C15 -->|Zelle| C17[Status: Pending Payment<br />Awaiting
+            Manual Verification] C16 --> C18[Order Confirmation Email<br />to
+            Provider] C17 --> C18 C18 --> C19[Order Appears in<br />Provider
+            Order History] C19 --> C20[Order Appears in<br />Admin Order
+            Dashboard] C20 --> C21[Rep Attribution<br />Automatically Tagged]
+            C21 --> C22[Rep Sales Total<br />Auto-Updated] style C14
             fill:#F59E0B,stroke:#D97706,stroke-width:2px style C16
             fill:#10B981,stroke:#059669,stroke-width:2px style C17
             fill:#F59E0B,stroke:#D97706,stroke-width:2px style C21
