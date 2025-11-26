@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Viora Biotech - Super Admin User Flows</title>
+    <title>Viora Biotech - Super Admin User Flows (Fixed)</title>
+    <!--
+      This version of the document fixes syntax errors in the Mermaid diagrams.
+      Key changes:
+        - Each `style` directive in the Mermaid blocks is placed on its own line.
+        - HTML line breaks inside node labels use `<br/>` without a space.
+      These adjustments ensure that Mermaid can parse the diagrams without
+      throwing a "Syntax error in text" message.
+    -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
     <style>
       * {
@@ -254,7 +262,7 @@
     <div class="container">
       <header>
         <h1>Viora Biotech Super Admin</h1>
-        <div class="subtitle">User Flow Diagrams</div>
+        <div class="subtitle">User Flow Diagrams (Fixed)</div>
         <div class="date">
           Complete Workflow Documentation for Product Designers & Developers
         </div>
@@ -318,7 +326,7 @@
           </div>
           <div class="mermaid">
             graph TD A1[Admin logs into Super Admin Panel] --> A2[Navigate to
-            Providers > Create New Provider] A2 --> A3[Fill Provider Form<br />-
+            Providers &gt; Create New Provider] A2 --> A3[Fill Provider Form<br />-
             Clinic name<br />- NPI number<br />- Contact info<br />- Shipping
             address] A3 --> A4[Select Rep from Dropdown<br />Required field] A4
             --> A5[Click Submit] A5 --> A6{NPI Valid?} A6 -->|No| A7[Show Error
@@ -331,9 +339,9 @@
             Password] P3 --> P4[Provider Completes Profile<br />Optional
             details] P4 --> P5[Account Activated<br />Status: Active] P5 -->
             P6[Provider Can Now<br />Browse & Purchase] P5 -.-> P7[Rep
-            Automatically<br />Attributed to All Orders] style A8
-            fill:#10B981,stroke:#059669,stroke-width:2px style P5
-            fill:#10B981,stroke:#059669,stroke-width:2px style A7
+            Automatically<br />Attributed to All Orders] %% style directives on
+            separate lines style A8 fill:#10B981,stroke:#059669,stroke-width:2px
+            style P5 fill:#10B981,stroke:#059669,stroke-width:2px style A7
             fill:#EF4444,stroke:#DC2626,stroke-width:2px
           </div>
           <div class="legend">
@@ -409,8 +417,9 @@
             Receives Welcome Email] P1 --> P2[Provider Clicks Setup Link] P2 -->
             P3[Provider Sets Password] P3 --> P4[Account Fully Active<br />Can
             Browse & Purchase] P4 -.-> P5[Rep Automatically<br />Attributed to
-            All Orders] style A15 fill:#10B981,stroke:#059669,stroke-width:2px
-            style P4 fill:#10B981,stroke:#059669,stroke-width:2px style A10
+            All Orders] %% style directives style A15
+            fill:#10B981,stroke:#059669,stroke-width:2px style P4
+            fill:#10B981,stroke:#059669,stroke-width:2px style A10
             fill:#EF4444,stroke:#DC2626,stroke-width:2px
           </div>
         </div>
@@ -459,7 +468,7 @@
             C18 --> C19[Order Appears in<br />Provider Order History] C19 -->
             C20[Order Appears in<br />Admin Order Dashboard] C20 --> C21[Rep
             Attribution<br />Automatically Tagged] C21 --> C22[Rep Sales
-            Total<br />Auto-Updated] style C14
+            Total<br />Auto-Updated] %% style directives style C14
             fill:#F59E0B,stroke:#D97706,stroke-width:2px style C16
             fill:#10B981,stroke:#059669,stroke-width:2px style C17
             fill:#F59E0B,stroke:#D97706,stroke-width:2px style C21
@@ -511,8 +520,9 @@
             --> D15[Order Status: Shipped] D15 --> D16[Admin Returns to Order
             Table] D16 --> D17{More Orders?} D17 -->|Yes| D5 D17 -->|No| D18[All
             Orders Processed] D13 -.-> P1[Provider Receives Email] P1 -->
-            P2[Provider Clicks Track Link] P2 --> P3[Views Tracking Info] style
-            D15 fill:#10B981,stroke:#059669,stroke-width:2px style D14
+            P2[Provider Clicks Track Link] P2 --> P3[Views Tracking Info] %%
+            style directives style D15
+            fill:#10B981,stroke:#059669,stroke-width:2px style D14
             fill:#10B981,stroke:#059669,stroke-width:2px
           </div>
         </div>
@@ -554,7 +564,7 @@
             E13[Admin Returns to Report] E13 --> E14[Check Mark as Paid<br />for
             Each Rep Row] E14 --> E15[System Updates Status<br />Payout: Paid
             with Date] E15 --> E16[Toast: Payouts marked<br />as complete] E16
-            --> E17[Commission Report Updated] style E11
+            --> E17[Commission Report Updated] %% style directives style E11
             fill:#10B981,stroke:#059669,stroke-width:2px style E15
             fill:#10B981,stroke:#059669,stroke-width:2px
           </div>
@@ -600,7 +610,7 @@
             Error Messages<br />Fix required fields] F15 --> F4 F14 -->|Yes|
             F16[Product Created<br />Added to Catalog] F16 --> F17[Toast:
             Product added<br />successfully] F17 --> F18[Product Visible in
-            Catalog<br />& Provider Portal] style F16
+            Catalog<br />& Provider Portal] %% style directives style F16
             fill:#10B981,stroke:#059669,stroke-width:2px style F15
             fill:#EF4444,stroke:#DC2626,stroke-width:2px
           </div>
@@ -648,7 +658,8 @@
             G13 --> G14[Update Commission Rate<br />or Other Details] G14 -->
             G15[Click Save] G15 --> G16[Toast: Rep updated<br />successfully]
             G16 --> G17[Return to Rep Performance] G12 -->|No| G18[Return to Rep
-            Directory] style G16 fill:#10B981,stroke:#059669,stroke-width:2px
+            Directory] %% style directives style G16
+            fill:#10B981,stroke:#059669,stroke-width:2px
           </div>
         </div>
       </div>
@@ -691,8 +702,8 @@
             already exists] H14 --> H4 H13 -->|Yes| H15[Code Created<br />Immediately
             Available] H15 --> H16[Toast: Discount code<br />created
             successfully] H16 --> H17[Code Listed in Table] H17 -->
-            H18[Providers Can Use<br />at Checkout] style H15
-            fill:#10B981,stroke:#059669,stroke-width:2px style H14
+            H18[Providers Can Use<br />at Checkout] %% style directives style
+            H15 fill:#10B981,stroke:#059669,stroke-width:2px style H14
             fill:#EF4444,stroke:#DC2626,stroke-width:2px
           </div>
         </div>
@@ -715,7 +726,7 @@
             <h4>Key Features:</h4>
             <ul>
               <li>Dashboard widget displays low stock count with badge</li>
-              <li>Configurable threshold (default: <20 units)</li>
+              <li>Configurable threshold (default: &lt;20 units)</li>
               <li>One-click navigation to filtered product view</li>
               <li>Quick inline stock quantity editing</li>
               <li>Real-time badge updates after stock replenishment</li>
@@ -726,13 +737,13 @@
             graph TD I1[Admin Logs In] --> I2[Dashboard Loads] I2 --> I3[Low
             Stock Widget Shows<br />Badge: 3 Products] I3 --> I4[Admin Clicks
             Badge] I4 --> I5[Navigate to Products<br />Auto-filtered: Low Stock]
-            I5 --> I6[Table Shows 3 Products<br />Stock < 20 units] I6 -->
+            I5 --> I6[Table Shows 3 Products<br />Stock &lt; 20 units] I6 -->
             I7[Click Edit on First Product] I7 --> I8[Product Edit Form Opens]
             I8 --> I9[Update Stock Quantity<br />e.g., 15 → 100] I9 -->
             I10[Click Save] I10 --> I11[Stock Updated] I11 --> I12[Toast: Stock
             updated<br />successfully] I12 --> I13{More Low Stock Items?} I13
             -->|Yes| I6 I13 -->|No| I14[Return to Dashboard] I14 --> I15[Low
-            Stock Badge<br />Updated: 0 Products] style I11
+            Stock Badge<br />Updated: 0 Products] %% style directives style I11
             fill:#10B981,stroke:#059669,stroke-width:2px style I15
             fill:#10B981,stroke:#059669,stroke-width:2px
           </div>
@@ -778,7 +789,7 @@
             --> J16[All 3 Applications Approved<br />Status: Active Pending
             Setup] J16 --> J17[System Sends 3 Welcome Emails] J17 --> J18[Toast:
             3 providers approved<br />Emails sent] J18 --> J19[Table Updates<br />7
-            Pending Applications Remain] style J16
+            Pending Applications Remain] %% style directives style J16
             fill:#10B981,stroke:#059669,stroke-width:2px style J18
             fill:#10B981,stroke:#059669,stroke-width:2px
           </div>
