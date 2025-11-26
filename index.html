@@ -279,11 +279,6 @@
           <li>
             <a href="#flow10">Flow 10: Bulk Actions - Multiple Approvals</a>
           </li>
-          <li>
-            <a href="#glossary" style="color: #8b5cf6"
-              >📖 Glossary of Terms (50+ Definitions)</a
-            >
-          </li>
         </ul>
       </div>
 
@@ -317,21 +312,20 @@
             </ul>
           </div>
           <div class="mermaid">
-            graph TD A1[Admin logs into Super Admin Panel] --> A2[Navigate to
-            Providers > Create New Provider] A2 --> A3[Fill Provider Form<br />-
-            Clinic name<br />- NPI number<br />- Contact info<br />- Shipping
-            address] A3 --> A4[Select Rep from Dropdown<br />Required field] A4
-            --> A5[Click Submit] A5 --> A6{NPI Valid?} A6 -->|No| A7[Show Error
-            Message<br />Invalid NPI format] A7 --> A3 A6 -->|Yes| A8[Provider
-            Created<br />Status: Pending Activation] A8 --> A9[System Sends
-            Invite Email<br />with Unique Activation Link] A9 --> A10[Toast:
-            Provider created<br />Invite email sent] A10 --> A11[Admin Returns
-            to<br />Provider Directory] A9 -.-> P1[Provider Receives Email] P1
-            --> P2[Provider Clicks<br />Activation Link] P2 --> P3[Provider Sets
-            Password] P3 --> P4[Provider Completes Profile<br />Optional
-            details] P4 --> P5[Account Activated<br />Status: Active] P5 -->
-            P6[Provider Can Now<br />Browse & Purchase] P5 -.-> P7[Rep
-            Automatically<br />Attributed to All Orders] style A8
+            flowchart TD A1[Admin logs into Super Admin Panel] --> A2[Navigate
+            to Providers - Create New Provider] A2 --> A3[Fill Provider Form<br />Clinic
+            name, NPI number<br />Contact info, Shipping address] A3 -->
+            A4[Select Rep from Dropdown<br />Required field] A4 --> A5[Click
+            Submit] A5 --> A6{NPI Valid?} A6 -->|No| A7[Show Error Message<br />Invalid
+            NPI format] A7 --> A3 A6 -->|Yes| A8[Provider Created<br />Status:
+            Pending Activation] A8 --> A9[System Sends Invite Email<br />with
+            Unique Activation Link] A9 --> A10[Toast: Provider created<br />Invite
+            email sent] A10 --> A11[Admin Returns to<br />Provider Directory] A9
+            -.-> P1[Provider Receives Email] P1 --> P2[Provider Clicks<br />Activation
+            Link] P2 --> P3[Provider Sets Password] P3 --> P4[Provider Completes
+            Profile<br />Optional details] P4 --> P5[Account Activated<br />Status:
+            Active] P5 --> P6[Provider Can Now<br />Browse and Purchase] P5 -.->
+            P7[Rep Automatically<br />Attributed to All Orders] style A8
             fill:#10B981,stroke:#059669,stroke-width:2px style P5
             fill:#10B981,stroke:#059669,stroke-width:2px style A7
             fill:#EF4444,stroke:#DC2626,stroke-width:2px
@@ -386,31 +380,31 @@
             </ul>
           </div>
           <div class="mermaid">
-            graph TD B1[Provider Visits Website] --> B2[Clicks Apply for
-            Account] B2 --> B3[Fill Application Form<br />- Clinic name<br />-
-            NPI number<br />- Contact info<br />- Business license upload<br />-
-            Reseller cert upload] B3 --> B4[Submit Application] B4 --> B5[System
-            Sends Confirmation Email<br />Application received, under review] B5
-            --> B6[Application in Admin Panel<br />Status: Pending Approval] B6
-            -.-> A1[Admin Receives Notification<br />New Application Badge] A1
-            --> A2[Navigate to Providers ><br />Pending Applications] A2 -->
-            A3[Click View on Application] A3 --> A4[Review Application
-            Details<br />- Provider info<br />- Uploaded documents<br />- NPI
-            verification] A4 --> A5{Documents Valid?} A5 -->|No| A6[Click
-            Reject] A6 --> A7[Enter Rejection Reason] A7 --> A8[Confirm
-            Rejection] A8 --> A9[System Sends Rejection Email<br />with Reason &
-            Reapplication Info] A9 --> A10[Application Status: Rejected] A5
-            -->|Yes| A11[Assign Rep from Dropdown<br />or Select Unassigned] A11
-            --> A12[Click Approve] A12 --> A13[Confirmation Dialog<br />Send
-            welcome email?] A13 --> A14[Admin Confirms] A14 --> A15[Provider
-            Approved<br />Status: Active Pending Setup] A15 --> A16[System Sends
-            Welcome Email<br />with Login Setup Link] A16 --> A17[Toast:
-            Provider approved<br />Welcome email sent] A16 -.-> P1[Provider
-            Receives Welcome Email] P1 --> P2[Provider Clicks Setup Link] P2 -->
-            P3[Provider Sets Password] P3 --> P4[Account Fully Active<br />Can
-            Browse & Purchase] P4 -.-> P5[Rep Automatically<br />Attributed to
-            All Orders] style A15 fill:#10B981,stroke:#059669,stroke-width:2px
-            style P4 fill:#10B981,stroke:#059669,stroke-width:2px style A10
+            flowchart TD B1[Provider Visits Website] --> B2[Clicks Apply for
+            Account] B2 --> B3[Fill Application Form<br />Clinic name, NPI
+            number<br />Contact info<br />Business license upload<br />Reseller
+            cert upload] B3 --> B4[Submit Application] B4 --> B5[System Sends
+            Confirmation Email<br />Application received under review] B5 -->
+            B6[Application in Admin Panel<br />Status: Pending Approval] B6 -.->
+            A1[Admin Receives Notification<br />New Application Badge] A1 -->
+            A2[Navigate to Providers<br />Pending Applications] A2 --> A3[Click
+            View on Application] A3 --> A4[Review Application Details<br />Provider
+            info<br />Uploaded documents<br />NPI verification] A4 -->
+            A5{Documents Valid?} A5 -->|No| A6[Click Reject] A6 --> A7[Enter
+            Rejection Reason] A7 --> A8[Confirm Rejection] A8 --> A9[System
+            Sends Rejection Email<br />with Reason and Reapplication Info] A9
+            --> A10[Application Status: Rejected] A5 -->|Yes| A11[Assign Rep
+            from Dropdown<br />or Select Unassigned] A11 --> A12[Click Approve]
+            A12 --> A13[Confirmation Dialog<br />Send welcome email?] A13 -->
+            A14[Admin Confirms] A14 --> A15[Provider Approved<br />Status:
+            Active Pending Setup] A15 --> A16[System Sends Welcome Email<br />with
+            Login Setup Link] A16 --> A17[Toast: Provider approved<br />Welcome
+            email sent] A16 -.-> P1[Provider Receives Welcome Email] P1 -->
+            P2[Provider Clicks Setup Link] P2 --> P3[Provider Sets Password] P3
+            --> P4[Account Fully Active<br />Can Browse and Purchase] P4 -.->
+            P5[Rep Automatically<br />Attributed to All Orders] style A15
+            fill:#10B981,stroke:#059669,stroke-width:2px style P4
+            fill:#10B981,stroke:#059669,stroke-width:2px style A10
             fill:#EF4444,stroke:#DC2626,stroke-width:2px
           </div>
         </div>
@@ -434,25 +428,26 @@
             <ul>
               <li>Dynamic tiered pricing calculation in cart</li>
               <li>
-                Multiple payment methods supported via Tycoon Payments (credit
-                card, debit card, ACH)
+                Payment methods via Tycoon Payments (credit card, debit card,
+                ACH)
               </li>
               <li>All payment processing handled by Tycoon integration</li>
+              <li>Optional discount code application at checkout</li>
               <li>Automatic rep attribution to every order</li>
               <li>Real-time sales total updates for assigned reps</li>
               <li>Order confirmation emails sent immediately</li>
             </ul>
           </div>
           <div class="mermaid">
-            graph TD C1[Provider Logs In] --> C2[Browse Product Catalog] C2 -->
-            C3[Add Products to Cart] C3 --> C4[Cart Shows Tiered Pricing<br />Auto-calculates
-            discounts] C4 --> C5[Proceed to Checkout] C5 --> C6[Enter/Confirm
+            flowchart TD C1[Provider Logs In] --> C2[Browse Product Catalog] C2
+            --> C3[Add Products to Cart] C3 --> C4[Cart Shows Tiered Pricing<br />Auto-calculates
+            discounts] C4 --> C5[Proceed to Checkout] C5 --> C6[Enter or Confirm
             Shipping Address] C6 --> C7[Select Payment Method<br />Credit Card,
-            Debit Card, ACH] C7 --> C8[Apply Discount Code<br />Optional] C8 -->
-            C9{Discount Valid?} C9 -->|No| C10[Show Error: Invalid Code] C10 -->
-            C8 C9 -->|Yes| C11[Discount Applied] C11 --> C12[Review Order Total]
-            C12 --> C13[Complete Purchase] C13 --> C14[Order Created<br />Status:
-            Pending Payment] C14 --> C15{Payment Method?} C15 -->|Credit/Debit|
+            Debit Card, or ACH] C7 --> C8[Apply Discount Code<br />Optional] C8
+            --> C9{Discount Valid?} C9 -->|No| C10[Show Error: Invalid Code] C10
+            --> C8 C9 -->|Yes| C11[Discount Applied] C11 --> C12[Review Order
+            Total] C12 --> C13[Complete Purchase] C13 --> C14[Order Created<br />Status:
+            Pending Payment] C14 --> C15{Payment Method?} C15 -->|Card|
             C16[Payment Processed via Tycoon<br />Status: Paid] C15 -->|ACH|
             C17[Payment Processing<br />3-5 business days] C16 --> C18[Order
             Confirmation Email<br />to Provider] C17 --> C18 C18 --> C19[Order
@@ -497,21 +492,22 @@
             </ul>
           </div>
           <div class="mermaid">
-            graph TD D1[Admin Logs In] --> D2[Navigate to Orders] D2 -->
+            flowchart TD D1[Admin Logs In] --> D2[Navigate to Orders] D2 -->
             D3[Filter by Processing Status] D3 --> D4[Table Shows 5 Orders<br />Ready
             to Ship] D4 --> D5[Click View on First Order] D5 --> D6[Order Detail
             Modal Opens<br />Shows full breakdown] D6 --> D7[Review Order
             Items<br />Provider info, Rep attribution] D7 --> D8[Scroll to Admin
-            Actions] D8 --> D9[Update Status Dropdown<br />Processing → Shipped]
-            D9 --> D10[Tracking Number Field Appears] D10 --> D11[Enter Tracking
-            Number<br />e.g., 1Z999AA10123456784] D11 --> D12[Click Save] D12
-            --> D13[System Sends Email to Provider<br />Order shipped, track
-            here] D13 --> D14[Toast: Status updated<br />Provider notified] D14
-            --> D15[Order Status: Shipped] D15 --> D16[Admin Returns to Order
-            Table] D16 --> D17{More Orders?} D17 -->|Yes| D5 D17 -->|No| D18[All
-            Orders Processed] D13 -.-> P1[Provider Receives Email] P1 -->
-            P2[Provider Clicks Track Link] P2 --> P3[Views Tracking Info] style
-            D15 fill:#10B981,stroke:#059669,stroke-width:2px style D14
+            Actions] D8 --> D9[Update Status Dropdown<br />Processing to
+            Shipped] D9 --> D10[Tracking Number Field Appears] D10 --> D11[Enter
+            Tracking Number<br />e.g., 1Z999AA10123456784] D11 --> D12[Click
+            Save] D12 --> D13[System Sends Email to Provider<br />Order shipped
+            track here] D13 --> D14[Toast: Status updated<br />Provider
+            notified] D14 --> D15[Order Status: Shipped] D15 --> D16[Admin
+            Returns to Order Table] D16 --> D17{More Orders?} D17 -->|Yes| D5
+            D17 -->|No| D18[All Orders Processed] D13 -.-> P1[Provider Receives
+            Email] P1 --> P2[Provider Clicks Track Link] P2 --> P3[Views
+            Tracking Info] style D15
+            fill:#10B981,stroke:#059669,stroke-width:2px style D14
             fill:#10B981,stroke:#059669,stroke-width:2px
           </div>
         </div>
@@ -542,18 +538,18 @@
             </ul>
           </div>
           <div class="mermaid">
-            graph TD E1[Admin Logs In] --> E2[Navigate to Reports] E2 -->
+            flowchart TD E1[Admin Logs In] --> E2[Navigate to Reports] E2 -->
             E3[Select Commission Report] E3 --> E4[Select Date Range<br />e.g.,
-            Nov 1-15, 2025] E4 --> E5{Filter by Rep?} E5 -->|Yes| E6[Select Rep
+            Nov 1-15 2025] E4 --> E5{Filter by Rep?} E5 -->|Yes| E6[Select Rep
             from Dropdown] E5 -->|No| E7[Show All Reps] E6 --> E8[Table
-            Populates with Data<br />Rep, Sales, Rate, Commission, Orders] E7
-            --> E8 E8 --> E9[Review Commission Data] E9 --> E10[Click Export
-            CSV] E10 --> E11[CSV Downloads<br />Includes order-level detail] E11
-            --> E12[Admin Processes Payouts<br />External: Gusto] E12 -->
-            E13[Admin Returns to Report] E13 --> E14[Check Mark as Paid<br />for
-            Each Rep Row] E14 --> E15[System Updates Status<br />Payout: Paid
-            with Date] E15 --> E16[Toast: Payouts marked<br />as complete] E16
-            --> E17[Commission Report Updated] style E11
+            Populates with Data<br />Rep Sales Rate Commission Orders] E7 --> E8
+            E8 --> E9[Review Commission Data] E9 --> E10[Click Export CSV] E10
+            --> E11[CSV Downloads<br />Includes order-level detail] E11 -->
+            E12[Admin Processes Payouts<br />External: Gusto] E12 --> E13[Admin
+            Returns to Report] E13 --> E14[Check Mark as Paid<br />for Each Rep
+            Row] E14 --> E15[System Updates Status<br />Payout: Paid with Date]
+            E15 --> E16[Toast: Payouts marked<br />as complete] E16 -->
+            E17[Commission Report Updated] style E11
             fill:#10B981,stroke:#059669,stroke-width:2px style E15
             fill:#10B981,stroke:#059669,stroke-width:2px
           </div>
@@ -586,20 +582,20 @@
             </ul>
           </div>
           <div class="mermaid">
-            graph TD F1[Admin Logs In] --> F2[Navigate to Products] F2 -->
-            F3[Click Add New Product] F3 --> F4[Fill Product Form<br />Name,
-            Description, Category<br />Dosage, Vial size, Stock qty] F4 -->
+            flowchart TD F1[Admin Logs In] --> F2[Navigate to Products] F2 -->
+            F3[Click Add New Product] F3 --> F4[Fill Product Form<br />Name
+            Description Category<br />Dosage Vial size Stock qty] F4 -->
             F5[Upload Product Images<br />Drag to reorder] F5 --> F6[Upload COA
             PDF] F6 --> F7[Add Testing Data<br />URL or upload] F7 --> F8[Set
-            Pricing Tiers<br />Click Add Tier] F8 --> F9[For Each Tier Enter:<br />Min
-            quantity, Max quantity<br />Price per unit] F9 --> F10{Add Another
+            Pricing Tiers<br />Click Add Tier] F8 --> F9[For Each Tier Enter<br />Min
+            quantity Max quantity<br />Price per unit] F9 --> F10{Add Another
             Tier?} F10 -->|Yes| F8 F10 -->|No| F11[Set Minimum Order Qty<br />Optional]
-            F11 --> F12[Set Product Status<br />Active / Inactive] F12 -->
+            F11 --> F12[Set Product Status<br />Active or Inactive] F12 -->
             F13[Click Submit] F13 --> F14{Validation Pass?} F14 -->|No| F15[Show
             Error Messages<br />Fix required fields] F15 --> F4 F14 -->|Yes|
             F16[Product Created<br />Added to Catalog] F16 --> F17[Toast:
             Product added<br />successfully] F17 --> F18[Product Visible in
-            Catalog<br />& Provider Portal] style F16
+            Catalog<br />and Provider Portal] style F16
             fill:#10B981,stroke:#059669,stroke-width:2px style F15
             fill:#EF4444,stroke:#DC2626,stroke-width:2px
           </div>
@@ -634,13 +630,13 @@
             </ul>
           </div>
           <div class="mermaid">
-            graph TD G1[Admin Logs In] --> G2[Navigate to Reps] G2 --> G3[Rep
-            Directory Table<br />All Reps Listed] G3 --> G4[Sort by Total
+            flowchart TD G1[Admin Logs In] --> G2[Navigate to Reps] G2 -->
+            G3[Rep Directory Table<br />All Reps Listed] G3 --> G4[Sort by Total
             Sales<br />Descending] G4 --> G5[Click View on Top Rep] G5 -->
-            G6[Rep Performance Page Opens] G6 --> G7[Overview Section Shows:<br />Total
-            providers<br />Total sales all-time, YTD<br />Total commission
+            G6[Rep Performance Page Opens] G6 --> G7[Overview Section Shows<br />Total
+            providers<br />Total sales all-time YTD<br />Total commission
             earned] G7 --> G8[Scroll to Attributed Providers<br />Table of all
-            linked providers] G8 --> G9[Review Provider Performance<br />Orders,
+            linked providers] G8 --> G9[Review Provider Performance<br />Orders
             spend per provider] G9 --> G10[Scroll to Order History<br />All
             orders with this rep] G10 --> G11[Review Commission Breakdown<br />Monthly
             chart] G11 --> G12{Make Changes?} G12 -->|Yes| G13[Click Edit Rep]
@@ -678,14 +674,14 @@
             </ul>
           </div>
           <div class="mermaid">
-            graph TD H1[Admin Logs In] --> H2[Navigate to Marketing ><br />Discount
+            flowchart TD H1[Admin Logs In] --> H2[Navigate to Marketing<br />Discount
             Codes] H2 --> H3[Click Create Discount Code] H3 --> H4[Enter Code
             Name<br />e.g., WELCOME10] H4 --> H5[Select Type<br />Percentage or
             Fixed Amount] H5 --> H6[Enter Value<br />e.g., 10% or $50] H6 -->
             H7[Set Usage Limit<br />Number or Unlimited] H7 --> H8[Set
             Expiration Date<br />Date picker] H8 --> H9[Set Applicable
             Products<br />All or Specific] H9 --> H10[Set Min Order Value<br />Optional]
-            H10 --> H11[Set Status<br />Active / Disabled] H11 --> H12[Click
+            H10 --> H11[Set Status<br />Active or Disabled] H11 --> H12[Click
             Create] H12 --> H13{Code Unique?} H13 -->|No| H14[Error: Code
             already exists] H14 --> H4 H13 -->|Yes| H15[Code Created<br />Immediately
             Available] H15 --> H16[Toast: Discount code<br />created
@@ -714,7 +710,7 @@
             <h4>Key Features:</h4>
             <ul>
               <li>Dashboard widget displays low stock count with badge</li>
-              <li>Configurable threshold (default: <20 units)</li>
+              <li>Configurable threshold (default: less than 20 units)</li>
               <li>One-click navigation to filtered product view</li>
               <li>Quick inline stock quantity editing</li>
               <li>Real-time badge updates after stock replenishment</li>
@@ -722,12 +718,12 @@
             </ul>
           </div>
           <div class="mermaid">
-            graph TD I1[Admin Logs In] --> I2[Dashboard Loads] I2 --> I3[Low
+            flowchart TD I1[Admin Logs In] --> I2[Dashboard Loads] I2 --> I3[Low
             Stock Widget Shows<br />Badge: 3 Products] I3 --> I4[Admin Clicks
             Badge] I4 --> I5[Navigate to Products<br />Auto-filtered: Low Stock]
-            I5 --> I6[Table Shows 3 Products<br />Stock < 20 units] I6 -->
-            I7[Click Edit on First Product] I7 --> I8[Product Edit Form Opens]
-            I8 --> I9[Update Stock Quantity<br />e.g., 15 → 100] I9 -->
+            I5 --> I6[Table Shows 3 Products<br />Stock less than 20 units] I6
+            --> I7[Click Edit on First Product] I7 --> I8[Product Edit Form
+            Opens] I8 --> I9[Update Stock Quantity<br />e.g., 15 to 100] I9 -->
             I10[Click Save] I10 --> I11[Stock Updated] I11 --> I12[Toast: Stock
             updated<br />successfully] I12 --> I13{More Low Stock Items?} I13
             -->|Yes| I6 I13 -->|No| I14[Return to Dashboard] I14 --> I15[Low
@@ -765,7 +761,7 @@
             </ul>
           </div>
           <div class="mermaid">
-            graph TD J1[Admin Logs In] --> J2[Navigate to Providers ><br />Pending
+            flowchart TD J1[Admin Logs In] --> J2[Navigate to Providers<br />Pending
             Applications] J2 --> J3[Table Shows 10<br />Pending Applications] J3
             --> J4[Select Checkbox on Row 1] J4 --> J5[Select Checkbox on Row 2]
             J5 --> J6[Select Checkbox on Row 3] J6 --> J7[Bulk Actions Bar
@@ -780,710 +776,6 @@
             Pending Applications Remain] style J16
             fill:#10B981,stroke:#059669,stroke-width:2px style J18
             fill:#10B981,stroke:#059669,stroke-width:2px
-          </div>
-        </div>
-      </div>
-
-      <!-- GLOSSARY -->
-      <div class="flow-section" id="glossary">
-        <div class="flow-header">
-          <div class="flow-number">📖</div>
-          <div class="flow-title-group">
-            <div class="flow-title">Glossary of Terms</div>
-            <div class="flow-description">
-              Essential definitions for understanding B2B pharmaceutical
-              e-commerce
-            </div>
-          </div>
-        </div>
-        <div class="flow-content">
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-              gap: 24px;
-            "
-          >
-            <!-- Core Business Terms -->
-            <div
-              style="
-                background: #f9fafb;
-                padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #0066cc;
-              "
-            >
-              <h3
-                style="
-                  font-size: 18px;
-                  font-weight: 700;
-                  color: #0066cc;
-                  margin-bottom: 16px;
-                "
-              >
-                Core Business Terms
-              </h3>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Provider</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A medical practice, clinic, or healthcare facility that
-                  purchases peptides from Viora Biotech. Must have an active NPI
-                  number to qualify. Think of them as your B2B customers.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Sales Rep (Rep)</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A sales representative who brings in providers and earns
-                  commission on their purchases. Each provider is "attributed"
-                  to a rep, meaning that rep gets credit (and commission) for
-                  all the provider's orders.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Super Admin</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The highest level of access in the system. Can create
-                  providers, assign reps, manage products, process orders, and
-                  view all reports. This is typically the business owner or
-                  operations manager.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Rep Attribution</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The automatic linking of a sales rep to a provider and all
-                  their orders. This ensures reps get credit and commission for
-                  the customers they brought in. It's like a permanent "tag"
-                  that says "this customer belongs to Rep A."
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937"
-                  >B2B (Business-to-Business)</strong
-                >
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A business model where you sell to other businesses, not
-                  individual consumers. In this case, Viora Biotech sells to
-                  medical clinics, not to individual patients.
-                </p>
-              </div>
-            </div>
-
-            <!-- Medical & Compliance Terms -->
-            <div
-              style="
-                background: #f9fafb;
-                padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #10b981;
-              "
-            >
-              <h3
-                style="
-                  font-size: 18px;
-                  font-weight: 700;
-                  color: #10b981;
-                  margin-bottom: 16px;
-                "
-              >
-                Medical & Compliance Terms
-              </h3>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937"
-                  >NPI (National Provider Identifier)</strong
-                >
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A unique 10-digit ID number for all healthcare providers in
-                  the United States. It's like a social security number for
-                  doctors and clinics. We require this to verify that customers
-                  are legitimate medical practices, not random individuals.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Peptide</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  Short chains of amino acids (building blocks of proteins) used
-                  in medical treatments. Examples include peptides for weight
-                  loss, muscle growth, anti-aging, etc. These are
-                  pharmaceutical-grade products.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937"
-                  >COA (Certificate of Analysis)</strong
-                >
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  An official document from a lab that confirms the purity,
-                  potency, and safety of a product. Think of it as a "quality
-                  report card" for each peptide. Medical providers need this to
-                  verify they're buying legitimate, safe products.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Third-Party Testing Data</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  Lab results from an independent testing facility (not the
-                  manufacturer) that verify product quality. This adds extra
-                  credibility and trust.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Vial</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A small glass container that holds liquid medication (in this
-                  case, peptides). Vial size is measured in milliliters (ml),
-                  like "10ml vial."
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Dosage</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The amount of active ingredient in a product, measured in
-                  milligrams (mg). For example, "5mg peptide" means there are 5
-                  milligrams of the peptide per dose.
-                </p>
-              </div>
-            </div>
-
-            <!-- E-commerce Terms -->
-            <div
-              style="
-                background: #f9fafb;
-                padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #f59e0b;
-              "
-            >
-              <h3
-                style="
-                  font-size: 18px;
-                  font-weight: 700;
-                  color: #f59e0b;
-                  margin-bottom: 16px;
-                "
-              >
-                E-commerce & Ordering Terms
-              </h3>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Tiered Pricing</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  Volume discounts where the price per unit decreases as you buy
-                  more. Example: 1-24 units cost $150 each, but 25-99 units cost
-                  $125 each. The more you buy, the cheaper each unit becomes.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">SKU (Stock Keeping Unit)</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A unique code for each product variant. Think of it as a
-                  product's "ID number." For example, "Peptide X 5mg 10ml vial"
-                  would have a different SKU than "Peptide X 10mg 10ml vial."
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937"
-                  >Minimum Order Quantity (MOQ)</strong
-                >
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The smallest amount of a product you can order. For example,
-                  if the MOQ is 10 vials, you must buy at least 10 vials; you
-                  can't buy just 5.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Discount Code</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A promotional code (like "WELCOME10") that providers can enter
-                  at checkout to get a discount. Can be percentage-based (10%
-                  off) or fixed amount ($50 off).
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Cart</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The virtual shopping basket where providers add products
-                  before purchasing. The cart automatically calculates totals,
-                  applies tiered pricing, and shows discounts.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Checkout</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The final step where providers enter shipping info, select
-                  payment method, and complete their purchase. Like the
-                  "cashier" in a physical store.
-                </p>
-              </div>
-            </div>
-
-            <!-- Payment Terms -->
-            <div
-              style="
-                background: #f9fafb;
-                padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #8b5cf6;
-              "
-            >
-              <h3
-                style="
-                  font-size: 18px;
-                  font-weight: 700;
-                  color: #8b5cf6;
-                  margin-bottom: 16px;
-                "
-              >
-                Payment & Financial Terms
-              </h3>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Tycoon Payments</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The payment processing platform that handles all transactions
-                  for Viora Biotech. Tycoon manages the entire payment
-                  integration including credit cards, debit cards, and ACH bank
-                  transfers. All payment processing, security, and compliance is
-                  handled by Tycoon on their end.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937"
-                  >ACH (Automated Clearing House)</strong
-                >
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A bank-to-bank payment method (like electronic checks). It's
-                  cheaper than credit cards but takes 3-5 business days to
-                  process. Good for large B2B purchases.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Commission</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The percentage of sales that a rep earns as payment. For
-                  example, if a rep has a 15% commission rate and their provider
-                  spends $1,000, the rep earns $150.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Commission Rate</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The percentage used to calculate commission. Can vary per rep
-                  (e.g., Rep A gets 15%, Rep B gets 20%). Set by the admin.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Payout</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The actual payment given to a rep for their earned
-                  commissions. In V1, this is done manually (admin generates
-                  report, processes payment via Gusto, marks as "Paid").
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Gusto</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A payroll and HR software used to pay employees and
-                  contractors. In this case, it's used to process commission
-                  payouts to sales reps.
-                </p>
-              </div>
-            </div>
-
-            <!-- System & Technical Terms -->
-            <div
-              style="
-                background: #f9fafb;
-                padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #ec4899;
-              "
-            >
-              <h3
-                style="
-                  font-size: 18px;
-                  font-weight: 700;
-                  color: #ec4899;
-                  margin-bottom: 16px;
-                "
-              >
-                System & Technical Terms
-              </h3>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Invite-Only System</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A registration model where new users can't sign up on their
-                  own. They must receive an email invitation from an admin. This
-                  ensures only verified medical practices get access.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Activation Link</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A unique URL sent in the invite email that allows a provider
-                  to set their password and activate their account. Usually
-                  expires after 7 days for security.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Toast Notification</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A small pop-up message that appears briefly on screen to
-                  confirm an action (like "Provider created successfully"). It
-                  "pops up" like toast from a toaster, then disappears.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Modal</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A pop-up window that appears over the main screen, requiring
-                  the user to interact with it before continuing. Used for
-                  detailed views (like order details) or confirmations (like
-                  "Are you sure you want to delete?").
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">CSV Export</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  Downloading data as a spreadsheet file (Comma-Separated
-                  Values) that can be opened in Excel or Google Sheets. Used for
-                  commission reports, order lists, etc.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Badge</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A small colored circle with a number that appears on
-                  navigation items to show pending items. For example, "Pending
-                  Applications (3)" where the "3" is in a red badge.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Bulk Actions</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  Performing the same action on multiple items at once. For
-                  example, selecting 5 applications and approving them all with
-                  one click, instead of approving each one individually.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Filter</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A way to narrow down a list by specific criteria. For example,
-                  filtering orders to show only "Shipped" orders, or filtering
-                  providers to show only those assigned to "Rep A."
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Dropdown</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A menu that "drops down" when you click it, showing a list of
-                  options to choose from. Like selecting a rep from a list of
-                  all reps.
-                </p>
-              </div>
-            </div>
-
-            <!-- Order & Fulfillment Terms -->
-            <div
-              style="
-                background: #f9fafb;
-                padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #06b6d4;
-              "
-            >
-              <h3
-                style="
-                  font-size: 18px;
-                  font-weight: 700;
-                  color: #06b6d4;
-                  margin-bottom: 16px;
-                "
-              >
-                Order & Fulfillment Terms
-              </h3>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Order Status</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The current stage of an order in the fulfillment process.
-                  Typical stages: Pending (just placed) → Processing (being
-                  prepared) → Shipped (on the way) → Delivered (received by
-                  customer).
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Tracking Number</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A unique code (like "1Z999AA10123456784") from the shipping
-                  carrier (FedEx, UPS, USPS) that lets customers track their
-                  package's location in real-time.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Fulfillment</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The process of receiving an order, packing it, and shipping it
-                  to the customer. "Order fulfillment" means completing all
-                  these steps.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Invoice</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A detailed bill showing what was ordered, how much it cost,
-                  and payment details. Sent to the provider after purchase. Used
-                  for accounting and tax purposes.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Refund</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  Returning money to a customer, typically due to a cancelled
-                  order, returned product, or billing error. Processed through
-                  the same payment method used for the original purchase.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Reorder</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A quick way to purchase the same items from a previous order.
-                  The system automatically adds those items to the cart with
-                  current pricing (not the old prices).
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Low Stock Alert</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A notification that warns when a product's inventory is
-                  running low (e.g., below 20 units). Helps prevent stockouts
-                  (running out of product completely).
-                </p>
-              </div>
-            </div>
-
-            <!-- Report & Analytics Terms -->
-            <div
-              style="
-                background: #f9fafb;
-                padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #eab308;
-              "
-            >
-              <h3
-                style="
-                  font-size: 18px;
-                  font-weight: 700;
-                  color: #eab308;
-                  margin-bottom: 16px;
-                "
-              >
-                Report & Analytics Terms
-              </h3>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Date Range</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The time period you want to analyze. For example, "Nov 1-15,
-                  2025" or "Last 30 days." Used in reports to see data for
-                  specific timeframes.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Dashboard</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The main screen that shows an overview of key metrics and
-                  quick access to important features. Think of it as the "home
-                  page" for admins.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Sales Report</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A document showing sales data, broken down by rep, provider,
-                  product, or time period. Used to analyze business performance
-                  and identify trends.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Top Performers</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The reps, providers, or products with the highest sales in a
-                  given period. For example, "Top 10 providers by spend this
-                  month."
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937"
-                  >Average Order Value (AOV)</strong
-                >
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The average dollar amount spent per order. Calculated by
-                  dividing total revenue by number of orders. If you made
-                  $10,000 from 20 orders, AOV is $500.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">YTD (Year-to-Date)</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  Data from the beginning of the current year until now. For
-                  example, "YTD sales" in November means sales from January 1 to
-                  November 30.
-                </p>
-              </div>
-            </div>
-
-            <!-- Business License & Legal Terms -->
-            <div
-              style="
-                background: #f9fafb;
-                padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #64748b;
-              "
-            >
-              <h3
-                style="
-                  font-size: 18px;
-                  font-weight: 700;
-                  color: #64748b;
-                  margin-bottom: 16px;
-                "
-              >
-                Business License & Legal Terms
-              </h3>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Business License</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  An official government document that permits a business to
-                  operate legally. Required during provider application to
-                  verify the clinic is legitimate.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Reseller Certificate</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  A document that allows a business to buy products tax-free
-                  because they plan to resell them (not use them personally).
-                  Clinics that resell peptides to patients need this.
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Application Status</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  The current stage of a provider's application: Pending (under
-                  review), Approved (accepted), Rejected (denied), or More Info
-                  Needed (requires additional documents).
-                </p>
-              </div>
-
-              <div style="margin-bottom: 16px">
-                <strong style="color: #1f2937">Compliance</strong>
-                <p style="margin: 4px 0 0 0; color: #6b7280; font-size: 14px">
-                  Following all laws and regulations related to pharmaceutical
-                  sales. Includes verifying NPIs, checking business licenses,
-                  maintaining COAs, etc.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="key-points" style="margin-top: 32px">
-            <h4>💡 Pro Tip: Understanding the Workflow</h4>
-            <ul>
-              <li>
-                <strong>Think of Providers as your customers</strong> - They're
-                medical clinics buying in bulk
-              </li>
-              <li>
-                <strong>Think of Reps as your salespeople</strong> - They bring
-                in customers and earn commission
-              </li>
-              <li>
-                <strong>Think of the Admin as the control center</strong> - They
-                manage everything: approvals, products, orders, payouts
-              </li>
-              <li>
-                <strong>Rep Attribution is permanent</strong> - Once a rep
-                brings in a provider, they get credit forever
-              </li>
-              <li>
-                <strong>Tiered Pricing rewards volume</strong> - The more
-                providers buy, the cheaper each unit becomes
-              </li>
-              <li>
-                <strong>Commission is calculated automatically</strong> - But
-                payouts are manual in V1 (via Gusto)
-              </li>
-            </ul>
-          </div>
-
-          <div
-            style="
-              background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-              color: white;
-              padding: 24px;
-              border-radius: 8px;
-              margin-top: 24px;
-              text-align: center;
-            "
-          >
-            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 12px">
-              Still have questions?
-            </h4>
-            <p style="font-size: 14px; opacity: 0.9; margin: 0">
-              This glossary covers 50+ essential terms. If you need
-              clarification on any term or concept, don't hesitate to ask.
-              Understanding these fundamentals will make the user flows and
-              system design much clearer.
-            </p>
           </div>
         </div>
       </div>
